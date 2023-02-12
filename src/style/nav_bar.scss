@@ -1,0 +1,20 @@
+@import '../style/variables';
+
+.background {
+  background-color: $main-color;
+}
+
+.nav-bar {
+  margin: 0 auto;
+  max-width: 1200px;
+  display: block;
+  height: 40px;
+}
+
+.left {
+  display: inline-block;
+}
+
+.right {
+  float: right;
+}
