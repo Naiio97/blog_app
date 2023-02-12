@@ -9,12 +9,29 @@
   max-width: 1200px;
   display: block;
   height: 40px;
+
+  a {
+    text-decoration: none;
+  }
 }
 
 .left {
   display: inline-block;
+  padding-top: 8px;
 }
 
 .right {
   float: right;
+  padding-top: 8px;
+  a {
+    color: $link-color;
+
+    svg {
+        position: relative;
+        top: 2px;
+    }
+  }
+
+  
+  
 }

@@ -14,7 +14,7 @@ const NavBar = () => {
                     <Link to=''>About</Link>
                 </div>
                 <div className="right">
-                    <Link to='/login'>Log in <HiArrowNarrowRight /></Link>
+                    <Link to='/login'>Log in <HiArrowNarrowRight className='narrow' /></Link>
                 </div>
             </div>
         </div>
