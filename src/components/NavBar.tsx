@@ -1,22 +1,24 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { HiArrowNarrowRight } from "react-icons/hi"
 
-import '../style/nav_bar.scss'
+import '../style/nav_bar.scss';
+import logo from '../assets/logo.jpeg';
 
 
 const NavBar = () => {
     return (
-        <div className="background">
-            <div className="nav-bar">
+        <div className="nav-background">
+            <nav className="nav-bar">
                 <div className="left">
-                    <Link to='/'>Recent Articles</Link>
-                    <Link to=''>About</Link>
+                    <NavLink to="/"><img width="40px" src={logo} /></NavLink>
+                    <NavLink to='/'>Recent Articles</NavLink>
+                    <NavLink to='' className="inactive-link">About</NavLink>
                 </div>
                 <div className="right">
-                    <Link to='/login'>Log in <HiArrowNarrowRight className='narrow' /></Link>
+                    <NavLink to='/login'>Log in <HiArrowNarrowRight /></NavLink>
                 </div>
-            </div>
+            </nav>
         </div>
 
     )

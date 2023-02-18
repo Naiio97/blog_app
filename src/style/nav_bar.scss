@@ -1,14 +1,18 @@
 @import '../style/variables';
 
-.background {
+.nav-background {
   background-color: $main-color;
 }
 
 .nav-bar {
   margin: 0 auto;
   max-width: 1200px;
-  display: block;
+  display: flex;
   height: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
 
   a {
     text-decoration: none;
@@ -16,22 +20,44 @@
 }
 
 .left {
-  display: inline-block;
-  padding-top: 8px;
+  img {
+    margin: 2px 20px 0 0;
+    vertical-align: middle;
+  }
+
+  a {
+    color: $secondary-text-color;
+    margin: 20px;
+  }
+
+  .active {
+    color: $hover-color;
+  }
+  .inactive-link {
+    pointer-events: none;
+    color: $secondary-text-color;
+  }
 }
 
 .right {
-  float: right;
-  padding-top: 8px;
   a {
     color: $link-color;
 
     svg {
-        position: relative;
-        top: 2px;
+      position: relative;
+      top: 2px;
     }
   }
 
-  
-  
+  &:after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: $link-color;
+    transition: width 0.3s;
+  }
+  &:hover::after {
+    width: 20px;
+  }
 }
