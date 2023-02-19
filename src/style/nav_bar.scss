@@ -9,25 +9,30 @@
   max-width: 1200px;
   display: flex;
   height: 40px;
-  display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 20px;
-
   a {
     text-decoration: none;
   }
 }
 
 .left {
+  display: flex;
+  gap: 20px;
+
+  >:nth-child(2),
+  >:nth-child(3) {
+    margin-top: 8px;
+  }
+
   img {
-    margin: 2px 20px 0 0;
+    position: relative;
     vertical-align: middle;
   }
 
   a {
+    vertical-align: middle;
     color: $secondary-text-color;
-    margin: 20px;
   }
 
   .active {
@@ -40,24 +45,39 @@
 }
 
 .right {
+  
+.is-logged {
+  display: flex;
+  gap: 20px;
+}
+
   a {
     color: $link-color;
 
+    &:after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 2px;
+      background: $link-color;
+      transition: width 0.3s;
+    }
+    &:hover::after {
+      width: 20px;
+    }
+  }
+
+  .log-out {
+    background-color: $main-color;
+    color: $link-color;
+    border: none;
+    cursor: pointer;
+  }
+
+  .log-in {
     svg {
       position: relative;
       top: 2px;
     }
-  }
-
-  &:after {
-    content: '';
-    display: block;
-    width: 0;
-    height: 2px;
-    background: $link-color;
-    transition: width 0.3s;
-  }
-  &:hover::after {
-    width: 20px;
   }
 }

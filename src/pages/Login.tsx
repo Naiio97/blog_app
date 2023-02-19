@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import axios from 'axios';
 import '../style/login.scss'
 import { string } from 'joi';
@@ -8,7 +8,7 @@ const Login = () => {
   const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState<string>('');
+  const [error, setError] = useState('');
 
 
 
@@ -19,7 +19,7 @@ const Login = () => {
       username,
       password,
     };
-    
+
     try {
       const response = await axios.post("https://fullstack.exercise.applifting.cz/login", formData, {
         headers: {
@@ -33,16 +33,16 @@ const Login = () => {
         localStorage.setItem('access_token', data.access_token);
         navigate('/myArticle')
       }
-    } catch (error:any){
-      if(error.response.status === 400){
+    } catch (error: any) {
+      if (error.response.status === 400) {
         setError('Invalid login credentials!')
       }
 
-        if (error.response.status === 401) {
-          setError('Invalid login invalid!')
-        }
-    }   
-    
+      if (error.response.status === 401) {
+        setError('Invalid login invalid!')
+      }
+    }
+
 
   }
 
@@ -63,7 +63,7 @@ const Login = () => {
             onChange={(e) => setPassword(e.target.value)}></input>
         </div>
         {error && (
-        <span>{error}</span>)}
+          <span>{error}</span>)}
         <button>Log in</button>
       </form>
     </div>

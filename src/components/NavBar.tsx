@@ -1,12 +1,27 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { NavLink, useNavigate } from 'react-router-dom'
 import { HiArrowNarrowRight } from "react-icons/hi"
+import { FiLogOut } from "react-icons/fi"
 
 import '../style/nav_bar.scss';
 import logo from '../assets/logo.jpeg';
 
 
 const NavBar = () => {
+    const navigate = useNavigate();
+    const [isLogged, setIsLogged] = useState(false);
+
+    const logout = () => {
+        localStorage.removeItem('access_token');
+        navigate('/Login');
+    }
+
+    useEffect(() => {
+        const token = localStorage.getItem('access_token');
+        if (token) {
+            setIsLogged(true);
+        }
+    }, [])
     return (
         <div className="nav-background">
             <nav className="nav-bar">
@@ -16,12 +31,20 @@ const NavBar = () => {
                     <NavLink to='' className="inactive-link">About</NavLink>
                 </div>
                 <div className="right">
-                    <NavLink to='/login'>Log in <HiArrowNarrowRight /></NavLink>
+                    {isLogged ? (
+                        <div className="is-logged">
+                            <NavLink to='/MyArticles'>My articles</NavLink>
+                            <NavLink to='/CreateArticle'>Create Article</NavLink>
+                            <FiLogOut onClick={logout} className="log-out"></FiLogOut>
+                        </div>
+                    ) : (
+                            <NavLink to='/login' className='log-in'>Log in <HiArrowNarrowRight /></NavLink>
+                    )}
                 </div>
             </nav>
         </div>
 
-    )
-}
+    );
+};
 
 export default NavBar;
