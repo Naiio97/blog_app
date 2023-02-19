@@ -28,11 +28,20 @@
   input {
     width: 93%;
     padding-top: 10px;
-    margin-bottom: 30px;
     border: 1px solid #DFDFDF;
     border-radius: 5px;
     font-size: 17px;
     padding: 10px;
+
+    &:first-of-type {
+    margin-bottom: 30px;
+    }
+  }
+
+  span {
+    display: inline-block;
+    color: $error-color;
+    margin-top: 5px;
   }
 
   button {
@@ -41,6 +50,7 @@
     color: white;
     font-size: 15px;
     padding: 10px 15px;
+    margin-top: 20px;
     border-radius: 5px;
     border: none;
     float: right;
