@@ -4,7 +4,7 @@ import { Routes, Route } from 'react-router-dom'
 import NavBar from './components/NavBar'
 import Login from './pages/Login'
 import MyArticle from './pages/MyArticle'
-import NewArticle from './pages/NewArticle'
+import NewArticle from './pages/CreateArticle'
 import RecentArticles from './pages/RecentArticles'
 
 function App() {
