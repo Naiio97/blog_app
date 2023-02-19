@@ -13,6 +13,7 @@ const Login = () => {
           <label>Heslo</label><br />
           <input type="password" placeholder="**********"></input>
         </div>
+        <button>Log in</button>
       </form>
     </div>
   )
