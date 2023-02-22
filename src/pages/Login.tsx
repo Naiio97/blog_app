@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom'
+import NavBar from '../components/NavBar'
 import axios from 'axios';
 import '../style/login.scss'
 import { string } from 'joi';
@@ -31,7 +32,7 @@ const Login = () => {
 
       if (response.status === 200) {
         localStorage.setItem('access_token', data.access_token);
-        navigate('/myArticle')
+        navigate('/myArticles')
       }
     } catch (error: any) {
       if (error.response.status === 400) {
@@ -48,6 +49,8 @@ const Login = () => {
 
 
   return (
+    <>
+    <NavBar />
     <div className="login-container">
       <form onSubmit={hendleSubmit} className="login-form">
         <h1>Log in</h1>
@@ -67,6 +70,7 @@ const Login = () => {
         <button>Log in</button>
       </form>
     </div>
+    </>
   )
 }
 

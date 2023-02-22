@@ -1,0 +1,26 @@
+@import '../style/variables';
+@import '../style/mixins';
+
+.container {
+  @include positionContainer;
+}
+
+.table-articles {
+    max-width: 1200px;
+}
+
+table {
+
+    thead {
+        
+    
+        tr{
+            display:flex;
+            gap: 140px;
+                border-bottom: 2px solid #dfdfdf;
+                th{
+                    display: flex;
+                }
+        }
+    }
+}

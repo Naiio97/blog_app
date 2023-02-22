@@ -3,6 +3,7 @@ import { NavLink, useNavigate } from 'react-router-dom'
 import { HiArrowNarrowRight } from "react-icons/hi"
 import { FiLogOut } from "react-icons/fi"
 
+
 import '../style/nav_bar.scss';
 import logo from '../assets/logo.jpeg';
 
@@ -20,10 +21,8 @@ const NavBar: React.FC = () => {
     
         if (token) {
             setIsLogged(true);
-        }else {
-            setIsLogged(false);
         }
-    });
+    }, []);
     return (
         <div className="nav-background">
             <nav className="nav-bar">

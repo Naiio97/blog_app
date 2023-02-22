@@ -1,10 +1,8 @@
 @import '../style/variables';
+@import '../style/mixins';
 
 .login-container {
-  padding-top: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include positionContainer;
 
 
   h1 {
