@@ -6,22 +6,24 @@ import { FiLogOut } from "react-icons/fi"
 import '../style/nav_bar.scss';
 import logo from '../assets/logo.jpeg';
 
-
-const NavBar = () => {
+const NavBar: React.FC = () => {
     const navigate = useNavigate();
-    const [isLogged, setIsLogged] = useState(false);
+    const [isLogged, setIsLogged] = useState<boolean>(false);
 
-    const logout = () => {
+    const logout = (): void => {
         localStorage.removeItem('access_token');
         navigate('/Login');
-    }
+    };
 
     useEffect(() => {
         const token = localStorage.getItem('access_token');
+    
         if (token) {
             setIsLogged(true);
+        }else {
+            setIsLogged(false);
         }
-    }, [])
+    });
     return (
         <div className="nav-background">
             <nav className="nav-bar">
