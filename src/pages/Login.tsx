@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import NavBar from '../components/NavBar'
 import axios from 'axios';
 import '../style/login.scss'
+
 import { string } from 'joi';
 
 const Login = () => {
