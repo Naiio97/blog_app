@@ -1,3 +1,18 @@
 @import '../style/variables';
 @import '../style/mixins';
 
+td {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+}
+
+.action-icons {
+    display: flex;
+    gap: 20px;
+    svg {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+}

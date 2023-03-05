@@ -2,25 +2,54 @@
 @import '../style/mixins';
 
 .container {
-  @include positionContainer;
-}
-
-.table-articles {
     max-width: 1200px;
-}
+    margin: 50px auto;
 
-table {
+    .header {
+        display: flex;
+        gap: 30px;
+        margin-bottom: 50px;
 
-    thead {
-        
-    
-        tr{
-            display:flex;
-            gap: 140px;
-                border-bottom: 2px solid #dfdfdf;
-                th{
-                    display: flex;
-                }
+        a{
+            padding: 10px 20px;
+            color: #fff;
+            background-color: $link-color;
+            text-decoration: none;
+            border-radius: 5px;
         }
     }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+    
+            thead {
+                text-align: left;
+                border-bottom: 2px solid #ddd;
+    
+                th {
+                    border-bottom: 2px solid #ddd;
+                    padding-bottom: 10px;
+                    position: relative;
+    
+    
+                    .up {
+                        position: absolute;
+                        top: -3px;
+                    }
+    
+                    .down {
+                        position: absolute;
+                        top: 6px;
+                    }
+    
+                }
+    
+    
+            }
+    
+        }
+
 }
+
