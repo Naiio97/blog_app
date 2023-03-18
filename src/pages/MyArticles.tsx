@@ -19,7 +19,7 @@ type Articles = {
 const MyArticles = (props: Articles) => {
   const [articles, setArticles] = useState<Articles[]>([]);
   const [author, setAuthor] = useState<string>();
-  const [numberOfComments, setNumberOfComments] = useState<number>();
+  //const [numberOfComments, setNumberOfComments] = useState<number>();
   const [error, setError] = useState<string>();
 
   const getArticles = async () => {
@@ -63,34 +63,30 @@ const MyArticles = (props: Articles) => {
 
   //TODO dodělat výpis konematářů
 
-  const getComments = async (articleId: React.Key) => {
-    try {
-      const response = await axios.get(
-        `https://fullstack.exercise.applifting.cz/articels/${articleId}`,
-        {
-          headers: {
-            "Content-Type": "application/json",
-            "X-API-KEY": "82e81c5e-f47e-4566-ac95-a7f7fec32c62",
-            Authorization: localStorage.getItem('access_token'),
-          }
-        }
-      )
-      console.log(response.data.comments.length, 'aojd');
-      
-    } catch (err) {
+  // const getComments = async (articleId: React.Key) => {
+  //   try {
+  //     const response = await axios.get(
+  //       `https://fullstack.exercise.applifting.cz/articels/${articleId}`,
+  //       {
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //           "X-API-KEY": "82e81c5e-f47e-4566-ac95-a7f7fec32c62",
+  //           Authorization: localStorage.getItem('access_token'),
+  //         }
+  //       }
+  //     )
+  //     console.log(response.data.comments.length, 'aojd');
 
-    }
+  //   } catch (err) {
+
+  //   }
 
 
-  }  
+  //}  
+
   useEffect(() => {
     getArticles();
     getAuthor()
-    articles.forEach((article) => {
-      getComments(article.articleId);
-      console.log('sdas');
-      
-    });
   }, [])
 
   return (
