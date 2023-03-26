@@ -16,30 +16,36 @@ type Articles = {
   comments: number;
 };
 
-const MyArticles = (props: Articles) => {
+const MyArticles = () => {
   const [articles, setArticles] = useState<Articles[]>([]);
   const [author, setAuthor] = useState<string>();
   //const [numberOfComments, setNumberOfComments] = useState<number>();
   const [error, setError] = useState<string>();
 
-  const getArticles = async () => {
-    try {
-      const response = await axios.get<{ items: Articles[] }>(
-        "https://fullstack.exercise.applifting.cz/articles",
-        {
-          headers: {
-            "Content-Type": "application/json",
-            "X-API-KEY": "82e81c5e-f47e-4566-ac95-a7f7fec32c62",
-            Authorization: localStorage.getItem("token"),
-          },
-        }
-      );
 
-      setArticles(response.data.items)
-    } catch (err) {
+  useEffect(() => {
+    const getArticles = async () => {
+      try {
+        const response = await axios.get<{ items: Articles[] }>(
+          "https://fullstack.exercise.applifting.cz/articles",
+          {
+            headers: {
+              "Content-Type": "application/json",
+              "X-API-KEY": "82e81c5e-f47e-4566-ac95-a7f7fec32c62",
+              Authorization: localStorage.getItem("token"),
+            },
+          }
+        );
 
+        setArticles(response.data.items)
+      } catch (err) {
+        
+      }
     }
-  }
+
+    getArticles();
+  }, []);
+
 
   const getAuthor = async () => {
     try {
@@ -55,6 +61,26 @@ const MyArticles = (props: Articles) => {
       )
 
       setAuthor(response.data.name)
+
+    } catch (err) {
+
+    }
+  }
+
+  const handleDeleteArticle = async (articleId: React.Key) => {
+    try {
+      const response = await axios.delete(
+        `https://fullstack.exercise.applifting.cz/articles/${articleId}`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            "X-API-KEY": "82e81c5e-f47e-4566-ac95-a7f7fec32c62",
+            Authorization: localStorage.getItem('access_token'),
+          }
+        })
+
+      const updatedArticles = articles.filter((article) => article.articleId !== articleId);
+      setArticles(updatedArticles);
 
     } catch (err) {
 
@@ -85,7 +111,6 @@ const MyArticles = (props: Articles) => {
   //}  
 
   useEffect(() => {
-    getArticles();
     getAuthor()
   }, [])
 
@@ -121,6 +146,7 @@ const MyArticles = (props: Articles) => {
                       author={author}
                       articleId={article.articleId}
                       comments={article.comments}
+                      handleDeleteArticle={handleDeleteArticle}
                     />
                   );
                 })

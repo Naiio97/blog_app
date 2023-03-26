@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import axios from 'axios';
 import '../style/my_article.scss';
 import { FiEdit2 } from "react-icons/fi"
 import { AiOutlineDelete } from "react-icons/ai"
@@ -11,51 +10,33 @@ type Props = {
     title: string,
     perex: string,
     author: string|undefined,
-    comments: number
-
+    comments: number,
+    handleDeleteArticle: (articleId: React.Key) => void,
 }
+
 
 
 const MyArticle = (props: Props) => {
 
-    const hendleDeleteArticle = async (articleId: React.Key) => {
-        try {
-            const response = await axios.delete(
-                `https://fullstack.exercise.applifting.cz/articles/${articleId}`,
-                {
-                    headers: {
-                        "Content-Type": "application/json",
-                        "X-API-KEY": "82e81c5e-f47e-4566-ac95-a7f7fec32c62",
-                        Authorization: localStorage.getItem('access_token'),
-                    }
-                })
+    const { articleId, title, perex, author, comments, handleDeleteArticle } = props;
 
-        
-                
-        } catch (err) {
-
-        }
+    const handleDelete = () => {
+        handleDeleteArticle(articleId)
     }
-
-    useEffect(() => {
-        hendleDeleteArticle()
-    })
 
     return (
         <>
-            <tr key={props.articleId}>
+            <tr key={articleId}>
                 <td><input type="checkbox"></input></td>
-                <td>{props.title}</td>
-                <td>{props.perex}</td>
-                <td>{props.author}</td>
-                <td>{props.comments}</td>
+                <td>{title}</td>
+                <td>{perex}</td>
+                <td>{author}</td>
+                <td>{comments}</td>
                 <td>
                     <div className="action-icons">
-                        <a><FiEdit2 /></a>  
-                        <span onClick={() => hendleDeleteArticle(props.articleId)}><AiOutlineDelete /></span>
+                        <a><FiEdit2 className="edit-icon" /></a>  
+                        <span onClick={() => handleDelete()}><AiOutlineDelete /></span>
                     </div>
-                    
-
                 </td>
             </tr>
         </>
