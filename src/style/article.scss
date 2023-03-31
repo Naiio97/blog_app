@@ -1,0 +1,40 @@
+@import '../style/variables';
+
+.article-container {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+
+    img {
+        width: 260px;
+        height: 220px;
+    }
+
+    .info-box {
+        width: 600px;
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        .name-date {
+            margin-bottom: 20px;
+            display: block;
+            color: #6C757D;
+        }
+
+        p {
+            margin-bottom: 20px;
+        }
+
+        .link-com {
+            display: flex;
+            gap: 20px;
+            a{
+                color: $link-color;
+            }
+        }
+
+    }
+
+}

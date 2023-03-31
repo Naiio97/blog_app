@@ -14,11 +14,16 @@ type Props = {
     handleDeleteArticle: (articleId: React.Key) => void,
 }
 
-
-
 const MyArticle = (props: Props) => {
 
     const { articleId, title, perex, author, comments, handleDeleteArticle } = props;
+
+    let shortTitle = title.slice(0, 30);
+    shortTitle += "...";
+
+    let shortPerex = perex.slice(0, 50);
+    shortPerex += "...";
+
 
     const handleDelete = () => {
         handleDeleteArticle(articleId)
@@ -28,8 +33,8 @@ const MyArticle = (props: Props) => {
         <>
             <tr key={articleId}>
                 <td><input type="checkbox"></input></td>
-                <td>{title}</td>
-                <td>{perex}</td>
+                <td>{title.length >= 30 ? shortTitle : title}</td>
+                <td>{perex.length >= 50 ? shortPerex : title}</td>
                 <td>{author}</td>
                 <td>{comments}</td>
                 <td>
