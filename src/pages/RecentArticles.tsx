@@ -17,7 +17,7 @@ type Articles = {
 const RecentArticles = () => {
   const [articles, setArticles] = useState<Articles[]>([]);
   const [author, setAuthor] = useState<string>();  
-  const [imageData, setImageData] = useState<{ [key: string]: string }>({});
+  const [imageData, setImageData] = useState<{[key: string]: string }>({});
   
   useEffect(() => {
     const getArticles = async () => {
@@ -31,21 +31,12 @@ const RecentArticles = () => {
               Authorization: localStorage.getItem("token"),
             },
           }
-        );
-
-        console.log(response.data.items);
-        
-
-
-
+        );        
         setArticles(response.data.items)
       } catch (err) {
 
       }
     }
-
-
-
     getArticles();
   }, []);
 
@@ -85,18 +76,13 @@ const RecentArticles = () => {
         }
       )
 
-
       const localUrl = URL.createObjectURL(response.data);
       setImageData((prevData) => ({ ...prevData, [imageId]: localUrl }));
-      
-      
-      
+    
     } catch (err){
 
     }
   }
-
-  console.log(imageData);
   
 
   useEffect(() => {
@@ -111,7 +97,6 @@ const RecentArticles = () => {
       <NavBar />
       <main className="recent_articles">
         <h1> Recent articles</h1>
-        {/* <Article articleId={''} title={''} perex={''} author={''} comments={0} /> */}
 
         {articles.length >= 1
           ? articles.map((article: { articleId: React.Key; title: string; perex: string; author: string; imageId: string; comments: number; }) => {

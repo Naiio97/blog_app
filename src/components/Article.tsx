@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import '../style/article.scss'
 
 type Articles = {
@@ -25,7 +26,7 @@ const Article = (props: Articles) => {
         <p>{perex}
         </p>
         <div className='link-com'>
-          <a>Read whole article</a> 
+          <Link style={{ textDecoration: 'none' }} to={`/article/${articleId}`}>Read whole article</Link>
           <span>{comments}</span>
         </div>
       </div>
