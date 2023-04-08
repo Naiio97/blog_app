@@ -77,5 +77,30 @@
             font-size: 20px;
         }
 
+        .input {
+            display: flex;
+            flex-direction: column;
+            margin-top: 20px;
+
+            input {
+                width: 760px;
+                height: 40px;
+                padding: 10px 15px;
+                font-size: 20px;
+                border: 1px solid #DFDFDF;
+                border-radius: 5px;
+            }
+        }
+
+        button {
+            padding: 10px 15px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+        }
+
     }
 }

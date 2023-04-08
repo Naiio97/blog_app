@@ -168,9 +168,20 @@ const DetailArticle = (props: Props) => {
                 <section className="comments-container">
                     <div className='horizontal-bar'></div>
                     <div>
-                        <h2>Comments (4)</h2>
+                        <h2>Comments (0)</h2>
+                        <form>
+                            <div className='input'>
+                                <input type="text"
+                                        id="comment_text"
+                                        required
+                                        placeholder='Join the discussion'
+                                        // onChange={(e) => setCommentContent(e.target.value)}
+                                        maxLength={1000}
+                                />
+                            </div>
+                            <button type='submit'>Add comment</button>
+                        </form>
                     </div>
-
                 </section>
             </main>
         </>
