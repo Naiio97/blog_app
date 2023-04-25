@@ -1,0 +1,98 @@
+@import '../style/variables';
+@import '../style/mixins';
+
+
+.form-article {
+    max-width: 1200px;
+    margin: 50px auto;
+
+    .header-form {
+        display: flex;
+        gap: 30px;
+        margin-bottom: 50px;
+
+        .submit-btn {
+            @include button;
+            border: none;
+            cursor: pointer;
+        }
+    }
+
+    label {
+        display: block;
+        margin-bottom: 30px;
+
+        i {
+            display: block;
+            font-style: normal;
+            margin-bottom: 5px;
+        }
+
+
+        input[type="text"] {
+            width: 760px;
+            height: 40px;
+            padding: 10px 15px;
+            font-size: 20px;
+            border: 1px solid #DFDFDF;
+            border-radius: 5px;
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+
+        .upload-btn {
+            @include button;
+            border: none;
+            background-color: #6C757D;
+            cursor: pointer;
+            padding: 12px 20px;
+        }
+
+        textarea {
+            display: block;
+            width: 760px;
+            height: 300px;
+            padding: 10px 15px;
+            font-size: 20px;
+            border: 1px solid #DFDFDF;
+            border-radius: 5px;
+        }
+
+        .uploaded-image {
+            margin-bottom: 30px;
+            .preview-image{
+                    height: 100px;
+                
+
+            }
+
+            .uploaded-image-btn{
+                display: flex;
+                gap: 10px;
+
+                button {
+                    background-color: #fff;
+                    border: none;
+                    font-size: 15px;
+                    cursor: pointer;
+                }
+
+                .reupload-btn {
+                    color: $link-color;
+                }
+
+                .delete-btn {
+                    color: #D83443;
+                }
+            }
+        }
+
+        .error{
+            margin-top:5px;
+            color: red;
+        }
+    }
+
+}
