@@ -11,11 +11,7 @@
         margin-bottom: 50px;
 
         a{
-            padding: 10px 20px;
-            color: #fff;
-            background-color: $link-color;
-            text-decoration: none;
-            border-radius: 5px;
+            @include button;
         }
     }
 
