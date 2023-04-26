@@ -109,7 +109,10 @@ const DetailArticle = (props: Props) => {
         response.data.items.map(
           (item: { title: string | any[]; perex: string | any[] }) => ({
             ...item,
-            perex: `${item.perex.slice(0, 180)}...`,
+            perex:
+              item.perex.length > 180
+                ? `${item.perex.slice(0, 180)}...`
+                : item.perex,
           })
         )
       );
