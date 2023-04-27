@@ -55,7 +55,7 @@ const Login = () => {
         <form onSubmit={hendleSubmit} className="login-form">
           <h1>Log in</h1>
           <div className="inputs">
-            <label>Email</label>
+            <label>Username</label>
             <br />
             <input
               type="text"
@@ -63,7 +63,7 @@ const Login = () => {
               onChange={(e) => setUsername(e.target.value)}
             ></input>
             <br />
-            <label>Heslo</label>
+            <label>Password</label>
             <br />
             <input
               type="password"
