@@ -272,7 +272,7 @@ const FormArticle = () => {
             {errors.articlePerex && <p className="error">Enter your perex.</p>}
           </label>
 
-          <label htmlFor="articleImage">
+          <label style={{width: '180px'}} htmlFor="articleImage">
             <i>Featured Image</i>
             <input
               type="file"

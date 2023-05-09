@@ -3,17 +3,58 @@
 
 .nav-background {
   background-color: $main-color;
+  height: 40px;
 }
 
 .nav-bar {
-  margin: 0 auto;
   max-width: 1200px;
-  display: flex;
-  height: 40px;
-  justify-content: space-between;
+  margin: 0 auto;
   align-items: center;
+  display: flex;
+  position: relative;
+
+  @media (max-width: 600px) {
+    display: block;
+  }
+
   a {
     text-decoration: none;
+  }
+
+}
+
+.nav-links {
+  display: flex;
+
+  @media (max-width: 600px) {
+    display: none;
+    background-color: $main-color;
+    position: relative;
+  }
+}
+
+@media (max-width: 600px) {
+  .responsive-menu {
+    display: block;
+  }
+}
+
+.menu-icon {
+  display: none;
+  right: 10px;
+  position: absolute;
+  top: 8px;
+  border: none;
+  background-color: $main-color;
+  cursor: pointer;
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  @media (max-width: 600px) {
+    display: block;
   }
 }
 
@@ -21,24 +62,31 @@
   display: flex;
   gap: 20px;
 
-  >:nth-child(2),
-  >:nth-child(3) {
-    margin-top: 8px;
+  @media (max-width: 600px) {
+    display: block;
+    margin-left: 10px;
   }
 
   img {
     position: relative;
     vertical-align: middle;
+    margin-top: 2px;
   }
 
   a {
     vertical-align: middle;
     color: $secondary-text-color;
+
+    @media (max-width: 600px) {
+      display: block;
+      margin-bottom: 5px;
+    }
   }
 
   .active {
     color: $hover-color;
   }
+
   .inactive-link {
     pointer-events: none;
     color: $secondary-text-color;
@@ -46,14 +94,35 @@
 }
 
 .right {
-  
-.is-logged {
-  display: flex;
-  gap: 20px;
-}
+  position: absolute;
+  right: 0;
+
+  @media (max-width: 600px) {
+    position: sticky;
+    display: block;
+    margin-left: 10px;
+    padding-bottom: 5px;
+  }
+
+  .is-logged {
+    display: flex;
+    gap: 20px;
+
+    @media (max-width: 1220px) {
+        margin-right: 10px;
+      }
+
+    @media (max-width: 600px) {
+      display: block;
+    }
+  }
 
   a {
     color: $link-color;
+
+    @media (max-width: 600px) {
+      display: block;
+    }
 
     &:after {
       content: '';
@@ -63,6 +132,7 @@
       background: $link-color;
       transition: width 0.3s;
     }
+
     &:hover::after {
       width: 20px;
     }
@@ -73,6 +143,7 @@
     color: $link-color;
     border: none;
     cursor: pointer;
+    margin-top: 2px;
   }
 
   .log-in {

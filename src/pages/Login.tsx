@@ -4,15 +4,15 @@ import NavBar from '../components/NavBar';
 import axios from 'axios';
 import '../style/login.scss';
 
-import { string } from 'joi';
-
-const Login = () => {
+const Login: React.FC = () => {
   const navigate = useNavigate();
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const [username, setUsername] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+  const [error, setError] = useState<string>('');
 
-  const hendleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const hendleSubmit = async (
+    e: React.FormEvent<HTMLFormElement>
+  ): Promise<void> => {
     e.preventDefault();
 
     const formData = {

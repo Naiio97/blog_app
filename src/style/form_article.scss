@@ -6,6 +6,10 @@
     max-width: 1200px;
     margin: 50px auto;
 
+    @media (max-width: 1220px) {
+        padding: 0 10px;
+    }
+
     .header-form {
         display: flex;
         gap: 30px;
@@ -15,6 +19,15 @@
             @include button;
             border: none;
             cursor: pointer;
+
+            @media (max-width: 454px) {
+                    margin-top: 10px;
+                }
+
+        }
+
+        @media (max-width: 454px) {
+             display: block;
         }
     }
 
@@ -36,6 +49,10 @@
             font-size: 20px;
             border: 1px solid #DFDFDF;
             border-radius: 5px;
+
+            @media (max-width: 790px) {
+                width: 100%;
+            }
         }
 
         input[type="file"] {
@@ -58,17 +75,20 @@
             font-size: 20px;
             border: 1px solid #DFDFDF;
             border-radius: 5px;
+
+            @media (max-width: 790px) {
+                width: 100%;
+            }
         }
 
         .uploaded-image {
             margin-bottom: 30px;
-            .preview-image{
-                    height: 100px;
-                
 
+            .preview-image {
+                height: 100px;
             }
 
-            .uploaded-image-btn{
+            .uploaded-image-btn {
                 display: flex;
                 gap: 10px;
 
@@ -89,8 +109,8 @@
             }
         }
 
-        .error{
-            margin-top:5px;
+        .error {
+            margin-top: 5px;
             color: red;
         }
     }

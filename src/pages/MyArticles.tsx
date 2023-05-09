@@ -130,23 +130,15 @@ const MyArticles = () => {
                 </th>
                 <th>
                   Article title
-                  <RxTriangleUp className="up" />
-                  <RxTriangleDown className="down" />
                 </th>
                 <th>
                   Perex
-                  <RxTriangleUp className="up" />
-                  <RxTriangleDown className="down" />
                 </th>
                 <th>
                   Author
-                  <RxTriangleUp className="up" />
-                  <RxTriangleDown className="down" />
                 </th>
                 <th>
                   # of comments
-                  <RxTriangleUp className="up" />
-                  <RxTriangleDown className="down" />
                 </th>
                 <th>Action</th>
               </tr>
